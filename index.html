@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#e9e2d5">
+
+  <title>忘れられた駅の駅長</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <main class="game">
+
+    <!-- ============================= -->
+    <!-- 上部ステータス -->
+    <!-- ============================= -->
+
+    <header class="status-bar">
+
+      <div class="status-date">
+        <span id="dateText">4月1日</span>
+        <span id="weekdayText">月曜日</span>
+      </div>
+
+      <div class="status-time">
+        <strong id="timeText">07:00</strong>
+      </div>
+
+      <div class="status-weather">
+        <span class="weather-icon">☀</span>
+        <span id="weatherText">晴れ</span>
+      </div>
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- メイン表示エリア -->
+    <!-- ============================= -->
+
+    <section class="screen-area">
+
+      <!-- 駅 -->
+      <section
+        id="screen-station"
+        class="game-screen active"
+        aria-label="駅"
+      >
+
+        <div class="station-scene">
+
+          <!-- 空 -->
+          <div class="sky"></div>
+
+          <!-- 山 -->
+          <div class="mountain mountain-back"></div>
+          <div class="mountain mountain-front"></div>
+
+          <!-- 駅舎 -->
+          <div class="station-building">
+
+            <div class="station-roof"></div>
+
+            <div class="station-wall">
+
+              <div class="station-window"></div>
+
+              <div class="station-door">
+                <span>駅</span>
+              </div>
+
+              <div class="station-sign">
+                朝凪駅
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- 木 -->
+          <div class="tree">
+            <div class="tree-top"></div>
+            <div class="tree-trunk"></div>
+          </div>
+
+
+          <!-- ホーム屋根 -->
+          <div class="platform-roof"></div>
+
+
+          <!-- ホーム -->
+          <div class="platform">
+
+            <div class="station-name-board">
+              <strong>朝凪</strong>
+              <span>ASANAGI</span>
+            </div>
+
+            <div class="old-bench">
+              <div class="bench-seat"></div>
+              <div class="bench-leg bench-leg-left"></div>
+              <div class="bench-leg bench-leg-right"></div>
+            </div>
+
+            <div class="vending-machine">
+              <div class="vending-display"></div>
+              <div class="vending-slot"></div>
+            </div>
+
+          </div>
+
+
+          <!-- 線路 -->
+          <div class="railway">
+
+            <div class="rail rail-top"></div>
+            <div class="rail rail-bottom"></div>
+
+            <div class="sleepers">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+          </div>
+
+
+          <!-- 閉鎖された旧ホーム -->
+          <div class="old-platform">
+
+            <span class="old-platform-label">
+              旧ホーム
+            </span>
+
+            <div class="old-fence"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 駅下部情報 -->
+        <div class="station-control">
+
+          <div class="next-train">
+
+            <span class="control-label">
+              次の列車
+            </span>
+
+            <strong id="nextTrainText">
+              07:15
+            </strong>
+
+          </div>
+
+
+          <div class="speed-control">
+
+            <span class="control-label">
+              時間
+            </span>
+
+            <div class="speed-buttons">
+
+              <button
+                class="speed-button active"
+                data-speed="1"
+                type="button"
+              >
+                ×1
+              </button>
+
+              <button
+                class="speed-button"
+                data-speed="2"
+                type="button"
+              >
+                ×2
+              </button>
+
+              <button
+                class="speed-button"
+                data-speed="4"
+                type="button"
+              >
+                ×4
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- 新聞 -->
+      <section
+        id="screen-news"
+        class="game-screen placeholder-screen"
+        aria-label="新聞"
+      >
+
+        <div class="placeholder-card">
+
+          <span class="placeholder-icon">
+            📰
+          </span>
+
+          <h2>朝凪町日報</h2>
+
+          <p>
+            新聞は、ゲーム2日目から届きます。
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- 駅長室 -->
+      <section
+        id="screen-office"
+        class="game-screen placeholder-screen"
+        aria-label="駅長室"
+      >
+
+        <div class="placeholder-card">
+
+          <span class="placeholder-icon">
+            🗝️
+          </span>
+
+          <h2>駅長室</h2>
+
+          <p>
+            駅の設備や予算を管理する場所です。
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- 乗客 -->
+      <section
+        id="screen-passengers"
+        class="game-screen placeholder-screen"
+        aria-label="乗客記録"
+      >
+
+        <div class="placeholder-card">
+
+          <span class="placeholder-icon">
+            📖
+          </span>
+
+          <h2>乗客記録</h2>
+
+          <p>
+            駅で出会った人たちのことが、
+            少しずつ記録されていきます。
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- 町 -->
+      <section
+        id="screen-town"
+        class="game-screen placeholder-screen"
+        aria-label="町"
+      >
+
+        <div class="placeholder-card">
+
+          <span class="placeholder-icon">
+            🏘️
+          </span>
+
+          <h2>朝凪町</h2>
+
+          <p>
+            駅の向こうにも、
+            小さな町の暮らしがあります。
+          </p>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- 下部ナビ -->
+    <!-- ============================= -->
+
+    <nav
+      class="bottom-nav"
+      aria-label="ゲームメニュー"
+    >
+
+      <button
+        class="nav-button active"
+        data-screen="station"
+        type="button"
+      >
+        <span class="nav-icon">🚉</span>
+        <span class="nav-label">駅</span>
+      </button>
+
+      <button
+        class="nav-button"
+        data-screen="news"
+        type="button"
+      >
+        <span class="nav-icon">📰</span>
+        <span class="nav-label">新聞</span>
+      </button>
+
+      <button
+        class="nav-button"
+        data-screen="office"
+        type="button"
+      >
+        <span class="nav-icon">🗝️</span>
+        <span class="nav-label">駅長室</span>
+      </button>
+
+      <button
+        class="nav-button"
+        data-screen="passengers"
+        type="button"
+      >
+        <span class="nav-icon">📖</span>
+        <span class="nav-label">乗客</span>
+      </button>
+
+      <button
+        class="nav-button"
+        data-screen="town"
+        type="button"
+      >
+        <span class="nav-icon">🏘️</span>
+        <span class="nav-label">町</span>
+      </button>
+
+    </nav>
+
+  </main>
+
+</body>
+</html>
